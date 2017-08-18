@@ -1,0 +1,62 @@
+# Linux 
+*.pid
+*.swp
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+00*.patch
+*$py.class
+
+# env
+.python-version
+.env
+.venv/
+venv/
+ENV/
+
+
+# Database
+*.rdb
+*.db
+*.sqlite3
+migrations/
+
+# pyCharm
+.idea
+
+# VSCODE
+.vscode
+.editorconfig
+.eslintrc.json
+.eslintignore
+
+
+# OS X
+.DS_Store
+
+# ansible ymal tmp 
+*.retry
+
+# Django stuff
+*.log
+*.pot
+log.ymal
+*.orig
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Distribution / packaging
+.Python
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Translations
+*.mo
+*.pot
+
+# C extensions
+*.so
