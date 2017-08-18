@@ -39,7 +39,7 @@ migrations/
 *.retry
 
 # Django stuff
-*.log
+#*.log
 *.pot
 log.ymal
 *.orig
