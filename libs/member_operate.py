@@ -19,7 +19,7 @@ def disable_member(username):
         host = member.vpn_server.host
         port = member.vpn_server.port
         vyos = vymgmt.Router(address=host, user='vyos',
-                             port=port, password='xJx580648942^')
+                             port=port, password='yourpassword')
         vyos.login()
         logger.info("VyOS login success~")
         vyos.configure()
@@ -52,7 +52,7 @@ def create_member(member_obj):
         password = member.password
         address = member.static_ip
         vyos = vymgmt.Router(address=host, user='vyos',
-                             port=port, password='xJx580648942^')
+                             port=port, password='yourpassword')
         vyos.login()
         logger.info("VyOS login success~")
         vyos.configure()
