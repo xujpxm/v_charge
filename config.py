@@ -19,7 +19,7 @@ class ProductionConfig(Config):
     DB_HOST = '192.168.1.1'
     DB_NAME = 'v_charge'
     DB_USER = 'v_charge'
-    DB_PASSWORD = 'ATNCHfiit7Qo'
+    DB_PASSWORD = 'yourpass'
     DB_PORT = 3306
 
 
