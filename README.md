@@ -8,5 +8,3 @@ vyos
 * Celery
 * gunicorn
 * supervisor
-
-

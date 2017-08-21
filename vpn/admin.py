@@ -21,7 +21,7 @@ class ServerAdmin(admin.ModelAdmin):
 
 
 class MemberAdmin(admin.ModelAdmin):
-    list_display = ['id', 'username', 'static_ip', 'created_time', 'start_time',
+    list_display = ['id', 'username', 'static_ip', 'start_time',
                     'service_life', 'end_time', 'create_user', 'is_enabled']
     list_filter = ['service_life', 'is_enabled']
     search_fields = ['username', 'created_time', 'updated_time', 'end_time']

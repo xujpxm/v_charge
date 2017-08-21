@@ -31,7 +31,7 @@ SECRET_KEY = 'f=pmfak=ehwmz%53zt42q)1^49=o3+w2*1rjl)ncfg*%*%cob%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = CONFIG.DEBUG
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -96,8 +96,7 @@ DATABASES = {
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USER = 'xujpxm'
 EMAIL_PORT = 587
-EMAIL_USER = 'youremail_address'
-EMAIL_PASSWORD = 'emai_password'
+EMAIL_PASSWORD = 'xJx580648942^'
 
 
 # Password validation
@@ -143,8 +142,8 @@ STATIC_URL = '/static/'
 
 
 ADMIN1 = '329771774@qq.com'
-ADMIN2 = '329771774@qq.com'
-ADMIN3 = '329771774@qq.com'
+ADMIN2 = '505775640@qq.com'
+ADMIN3 = 'iroader@163.com'
 ADMINS = [ADMIN1, ADMIN2, ADMIN3]
 
 
@@ -154,7 +153,7 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = TIME_ZONE
-# CELERY_ENABLE_UTC = True
+CELERY_USE_TZ = True
 CELERY_BEAT_SCHEDULE = {
     'vpn_member_wathdog': {
         'task': 'tasks.monitor_endtime_crontab',

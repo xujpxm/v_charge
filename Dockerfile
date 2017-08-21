@@ -6,7 +6,7 @@ MAINTAINER xujpxm
 ENV ENV_CONFIG production
 #创建代码目录
 RUN mkdir -p /data/v_charge\
-    && apk add --no-cache  py-mysqldb
+    && apk add --no-cache  py-mysqldb redis
 #上传代码和nginx+supervisor服务的配置文件
 ADD . /data/v_charge
 ADD conf/nginx_example.conf /etc/nginx/conf.d/

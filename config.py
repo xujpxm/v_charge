@@ -18,8 +18,8 @@ class ProductionConfig(Config):
     DEBUG = False
     DB_HOST = '192.168.1.1'
     DB_NAME = 'v_charge'
-    DB_USER = 'dbuser'
-    DB_PASSWORD = 'dbpasswd'
+    DB_USER = 'v_charge'
+    DB_PASSWORD = 'ATNCHfiit7Qo'
     DB_PORT = 3306
 
 

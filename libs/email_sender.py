@@ -12,8 +12,9 @@ logger = logger_config('mail', 'mail.log')
 
 MAIL_SUBJECT = "VPN USER WILL OUT OF SERVICE"
 MAIL_BODY = """
-vpn账户可用天数少于3天，请联系管理员及时充值，否则到期会自动禁用。
-谢谢。
+  VPN User will out of service, please contact administrator and recharge your account.
+Otherwise vpn user will be disabled.
+Thanks~
 """
 
 
