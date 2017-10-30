@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
-from celery import shared_task, task
+import logging
+from celery import shared_task
 from django.utils import timezone
 from datetime import timedelta
 
 from vpn.models import Member
-from libs.logger import logger_config
 from libs.email_sender import send_email
 from libs.member_operate import disable_member
 
-logger = logger_config('vpn', 'vpn.log')
+logger = logging.getLogger('vpn')
 
 
 @shared_task(name='tasks.monitor_endtime')

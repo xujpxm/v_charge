@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals, absolute_import
+import logging
 import traceback
 import yagmail
 from django.conf import settings
-from libs.logger import logger_config
 
 
-logger = logger_config('mail', 'mail.log')
+logger = logging.getLogger('mail')
 
 
 MAIL_SUBJECT = "VPN USER WILL OUT OF SERVICE"

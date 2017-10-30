@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
+import logging
 import traceback
 import vymgmt
 
-from libs.logger import logger_config
 from vpn.models import Member
 
-logger = logger_config('vyos_operation', 'vpn.log')
+logger = logging.getLogger('vpn')
 
 
 def disable_member(username):

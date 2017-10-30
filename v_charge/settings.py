@@ -93,10 +93,10 @@ DATABASES = {
     }
 }
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USER = 'xujpxm'
-EMAIL_PORT = 587
-EMAIL_PASSWORD = 'xJx580648942^'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_USER = 'xujpxm'
+# EMAIL_PORT = 587
+# EMAIL_PASSWORD = 'xJx580648942^'
 
 
 # Password validation
@@ -159,4 +159,85 @@ CELERY_BEAT_SCHEDULE = {
         'task': 'tasks.monitor_endtime_crontab',
         'schedule': timedelta(hours=6),
     },
+}
+
+LOGGING = {
+    # logging configuration
+    "version": 1,
+    'disable_existing_loggers': False,
+    "formatters": {
+        "simple": {
+            "format": "[%(asctime)s] %(levelname)s: %(name)s: %(message)s"
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "DEBUG",
+            "formatter": "simple",
+            "stream": "ext://sys.stdout"
+        },
+        "vpn": {
+            "class": "logging.handlers.TimedRotatingFileHandler",
+            "level": "INFO",
+            "formatter": "simple",
+            "filename": os.path.join(LOG_BASE_DIR, 'vpn.log'),
+            "when": "midnight",
+            "backupCount": 30
+        },
+        "mail": {
+            "class": "logging.handlers.TimedRotatingFileHandler",
+            "level": "INFO",
+            "formatter": "simple",
+            "filename": os.path.join(LOG_BASE_DIR, 'mail.log'),
+            "when": "midnight",
+            "backupCount": 30
+        },
+        "error": {
+            "class": "logging.handlers.TimedRotatingFileHandler",
+            "level": "ERROR",
+            "formatter": "simple",
+            "filename": os.path.join(LOG_BASE_DIR, 'error.log'),
+            "when": "midnight",
+            "backupCount": 30
+        },
+    },
+    "loggers": {
+        "django": {
+            "level": "INFO",
+            "handlers": [
+                "console"
+            ],
+            "propagate": True,
+        },
+        "django.request": {
+            "level": "INFO",
+            "handlers": [
+                "console"
+            ],
+            "propagate": False
+        },
+        "mail": {
+            "level": "INFO",
+            "handlers": [
+                "mail",
+                "error",
+            ],
+            "propagate": False,
+        },
+        "vpn": {
+            "level": "DEBUG",
+            "handlers": [
+                "vpn",
+                "error",
+            ],
+            "propagate": False
+        }
+    },
+    "root": {
+        "level": "DEBUG",
+        "handlers": [
+            "console",
+        ],
+    }
 }
