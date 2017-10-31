@@ -19,7 +19,7 @@ def disable_member(username):
         host = member.vpn_server.host
         port = member.vpn_server.port
         vyos = vymgmt.Router(address=host, user='vyos',
-                             port=port, password='yourpassword')
+                             port=port)
         vyos.login()
         logger.info("VyOS login success~")
         vyos.configure()
@@ -33,6 +33,32 @@ def disable_member(username):
         member.is_enabled = False
         member.save()
         logger.info("user %s is disabled" % username)
+        return True
+    except Exception:
+        logger.error(traceback.format_exc())
+        return False
+
+
+def enable_member(username):
+    """
+        启用vyos用户
+    :username: vyos vpn username
+    :return: True or False
+    """
+    try:
+        member = Member.objects.get(username=username)
+        host = member.vpn_server.host
+        port = member.vpn_server.port
+        vyos = vymgmt.Router(address=host, user='vyos', port=port)
+        vyos.login()
+        vyos.configure()
+        vyos.delete(
+            'vpn l2tp remote-access authentication local-users username %s disable' % username)
+        vyos.commit()
+        vyos.save()
+        vyos.exit()
+        vyos.logout()
+        logger.info('VPN User {0} is enabled'.format(username))
         return True
     except Exception:
         logger.error(traceback.format_exc())
