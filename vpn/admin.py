@@ -22,7 +22,7 @@ class ServerAdmin(admin.ModelAdmin):
 
 class MemberAdmin(admin.ModelAdmin):
     list_display = ['id', 'username', 'static_ip', 'start_time',
-                    'service_life', 'end_time', 'create_user', 'is_enabled']
+                    'service_life', 'end_time', 'create_user', 'enable_user', 'is_enabled']
     list_filter = ['service_life', 'is_enabled']
     search_fields = ['username', 'created_time', 'updated_time', 'end_time']
 
@@ -33,6 +33,12 @@ class MemberAdmin(admin.ModelAdmin):
         return u'<a href="/vpn/member/create?member_id=%s">开通</a>' % obj.id
     create_user.short_description = u'操作'
     create_user.allow_tags = True
+
+    def enable_user(self, obj):
+        """启用用户，适用于用户续费行为"""
+        return u'<a href="/vpn/member/enable?member_id=%s">续费</a>' % obj.id
+    enable_user.short_description = u'续费'
+    enable_user.allow_tags = True
 
     def member_action(self, request, queryset):
         """

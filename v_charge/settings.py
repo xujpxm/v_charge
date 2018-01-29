@@ -94,9 +94,9 @@ DATABASES = {
 }
 
 # EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_USER = 'xujpxm'
+# EMAIL_USER = ''
 # EMAIL_PORT = 587
-# EMAIL_PASSWORD = 'xJx580648942^'
+# EMAIL_PASSWORD = ''
 
 
 # Password validation
@@ -226,7 +226,7 @@ LOGGING = {
             "propagate": False,
         },
         "vpn": {
-            "level": "DEBUG",
+            "level": "INFO",
             "handlers": [
                 "vpn",
                 "error",

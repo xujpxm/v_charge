@@ -39,14 +39,15 @@ def disable_member(username):
         return False
 
 
-def enable_member(username):
+def enable_member(member_obj):
     """
         启用vyos用户
     :username: vyos vpn username
     :return: True or False
     """
     try:
-        member = Member.objects.get(username=username)
+        member = member_obj
+        username = member.username
         host = member.vpn_server.host
         port = member.vpn_server.port
         vyos = vymgmt.Router(address=host, user='vyos', port=port)
@@ -58,6 +59,8 @@ def enable_member(username):
         vyos.save()
         vyos.exit()
         vyos.logout()
+        member.is_enabled = True
+        member.save()
         logger.info('VPN User {0} is enabled'.format(username))
         return True
     except Exception:

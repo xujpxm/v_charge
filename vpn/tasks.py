@@ -20,14 +20,14 @@ def monitor_endtime(username):
     """
     member_obj = Member.objects.get(username=username)
     end_time = member_obj.end_time
-    user_mail = member_obj.email
+    # user_mail = member_obj.email
     now = timezone.now()
     if end_time > now:
         valid_days = end_time - now
         if valid_days <= timedelta(days=3):
             # 判断可用天数是否小于三天，小于三天则发送报警邮件
             logger.info("user %s email alerting..." % username)
-            send_email(user_mail)
+            # send_email(user_mail)
         logger.info("user %s is in service" % username)
         return True
     # 判断是否到期，到期则禁用,返回False
